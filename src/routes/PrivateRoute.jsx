@@ -10,11 +10,12 @@ const PrivateRoute = ({ children }) => {
     return <span className="loading loading-spinner text-success"></span>;
   }
 
-  if (user) {
-      return { children };
-    }
-    
+  if (!user) {
     return <Navigate state={location.pathname} to={"/login"}></Navigate>;
+  }
+
+  return  children ;
+  
 };
 
 export default PrivateRoute;
